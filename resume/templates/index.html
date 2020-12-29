@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage Personal Portfolio</title>
+  </head>
+  <body>
+    <h1>My Personal Portfolio</h1>
+    <p>This is the coolest site ever!</p>
+    <p>Here is a list of my projects...</p>
+    <ul>
+      {% for project in projects %}
+      <li>
+        <div>
+          <h2>{{ project.title }}</h2>
+          <p>{{ project.description }}</p>
+          <img src="{{project.image.url}}" alt="{{project.title}}" />
+          {% if project.url %}
+          <a href="{{project.url}}" target="_blank" rel="noopener noreferrer"
+            >Go to project!</a
+          >
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
