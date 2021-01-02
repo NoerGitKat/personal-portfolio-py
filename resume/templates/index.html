@@ -25,5 +25,16 @@
       </li>
       {% endfor %}
     </ul>
+    <p>Made by this guy:</p>
+    {% load static %}
+    <img
+      height="`100%"
+      width="300px"
+      src="{% static 'noer_lrg.jpg' %}"
+      alt="Some hunk of a guy"
+    />
+    <a href="{% static 'wiggins-mctighe-ubd-nutshell.pdf' %}" target="_blank"
+      >UBD in a nutshell</a
+    >
   </body>
 </html>
