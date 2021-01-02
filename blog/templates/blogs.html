@@ -11,7 +11,9 @@
     <ul>
       {% for blog in blogs %}
       <li>
-        <h3>{{blog.title}}</h3>
+        <h3>
+          <a href="{% url 'blog:blog_detail' blog.id %}">{{blog.title}}</a>
+        </h3>
         <h5>{{blog.date}}</h5>
         <p>{{blog.description}}</p>
       </li>
