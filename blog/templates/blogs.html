@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Blogs!</title>
-  </head>
-  <body>
-    <h1>Blogs</h1>
-    <p>In this page you'll find all blogs!</p>
-    <h4>Noer has written {{ blogs.count }} blog{{ blogs.count|pluralize}}</h4>
-    <ul>
-      {% for blog in blogs %}
-      <li>
-        <h3>
-          <a href="{% url 'blog:blog_detail' blog.id %}">{{blog.title}}</a>
-        </h3>
-        <h5>{{blog.date|date:'M d Y'}}</h5>
-        <p>{{blog.description|safe|truncatechars:100}}</p>
-      </li>
+{% extends 'base.html' %} {% block content %}
+<h1>Blogs</h1>
+<p>In this page you'll find all blogs!</p>
+<h4>Noer has written {{ blogs.count }} blog{{ blogs.count|pluralize}}</h4>
+<ul>
+  {% for blog in blogs %}
+  <li>
+    <h3>
+      <a href="{% url 'blog:blog_detail' blog.id %}">{{blog.title}}</a>
+    </h3>
+    <h5>{{blog.date|date:'M d Y'}}</h5>
+    <p>{{blog.description|safe|truncatechars:100}}</p>
+  </li>
 
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,41 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage Personal Portfolio</title>
-  </head>
-  <body>
-    <h1>My Personal Portfolio</h1>
-    <p>This is the coolest site ever!</p>
-    <p>Find my blog <a href="{% url 'blog:all_blogs' %}">here</a>.</p>
-    <p>Here is a list of my projects...</p>
-    <ul>
-      {% for project in projects %}
-      <li>
-        <div>
-          <h2>{{ project.title }}</h2>
-          <p>{{ project.description }}</p>
-          <img src="{{project.image.url}}" alt="{{project.title}}" />
-          {% if project.url %}
-          <a href="{{project.url}}" target="_blank" rel="noopener noreferrer"
-            >Go to project!</a
-          >
-          {% endif %}
-        </div>
-      </li>
-      {% endfor %}
-    </ul>
-    <p>Made by this guy:</p>
-    {% load static %}
-    <img
-      height="`100%"
-      width="300px"
-      src="{% static 'noer_lrg.jpg' %}"
-      alt="Some hunk of a guy"
-    />
-    <a href="{% static 'wiggins-mctighe-ubd-nutshell.pdf' %}" target="_blank"
-      >UBD in a nutshell</a
-    >
-  </body>
-</html>
+{% extends 'base.html' %} {% block content %}
+<h1>My Personal Portfolio</h1>
+<p>This is the coolest site ever!</p>
+<p>Find my blog <a href="{% url 'blog:all_blogs' %}">here</a>.</p>
+<p>Here is a list of my projects...</p>
+<ul>
+  {% for project in projects %}
+  <li>
+    <div>
+      <h2>{{ project.title }}</h2>
+      <p>{{ project.description }}</p>
+      <img src="{{project.image.url}}" alt="{{project.title}}" />
+      {% if project.url %}
+      <a href="{{project.url}}" target="_blank" rel="noopener noreferrer"
+        >Go to project!</a
+      >
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+<p>Made by this guy:</p>
+{% load static %}
+<img
+  height="`100%"
+  width="300px"
+  src="{% static 'noer_lrg.jpg' %}"
+  alt="Some hunk of a guy"
+/>
+<a href="{% static 'wiggins-mctighe-ubd-nutshell.pdf' %}" target="_blank"
+  >UBD in a nutshell</a
+>
+{% endblock %}
