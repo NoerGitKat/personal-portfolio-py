@@ -123,4 +123,4 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 
-MEDIA_URL = '/media-folder/'
+MEDIA_URL = '/media/'
